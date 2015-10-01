@@ -18,3 +18,8 @@ We intend to develop server side in Java EE using Spring framework. It will be a
 
 ### Client
 To serve its purpose, the application should be accessible from a mobile phone. This means developing either mobile-first web application, a hybrid application (using e.g. Apache Cordova) or a native mobile application straightaway. We would like to go with a native application but the decision has not yet been made.
+
+## Team roles
+Daniel - team leader, native app development
+Torben - backend development, testing
+Jaewook - database development, backend development, testing
