@@ -21,5 +21,8 @@ To serve its purpose, the application should be accessible from a mobile phone. 
 
 ## Team roles
 Daniel - team leader, native app development
+
 Torben - backend development, testing
+
 Jaewook - database development, backend development, testing
+
