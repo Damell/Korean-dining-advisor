@@ -1,4 +1,4 @@
-# Korean-dining-advisor
+# Korean-dining-advisor [![Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=master)](https://travis-ci.org/Damell/Korean-dining-advisor)
 The goal of this project is to design and implement a platform that will provide foreigners with an easy way of ordering meal in restaurants in Korea.
 
 ## Background
