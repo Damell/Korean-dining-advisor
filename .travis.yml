@@ -1,15 +1,13 @@
 language: java
+script: mvn package -Popenshift
 jdk:
-- oraclejdk8
+  - oraclejdk8
 deploy:
-  provider: elasticbeanstalk
-  endpoint: "s3-website-ap-northeast-1.amazonaws.com"
-  access_key_id: AKIAJY6HC5JNYO5A5VHA
-  secret_access_key:
-    secure: H4aTk7FKqhOCg7rZ4f4kaWPTl++kxTY8KnQeFP6kqWzBAYurJMkK+EJ14VK/RqiIrnvi3MSA9kXw+QNU5w1dio/sLHVgWk/LM7Hmlgk43RA8lA8tDvAK5C0iVIvuyXSFaK3Y0QtyL6q7V2xREJrzgSPYnDaYjTeEAae10H7dLmFI5/HVhHhMdZ1GtJyrblUVduD5F38EU1s1RsNNzhFfXAIep7J/azP9mp5aq82HjnAAl0+76lWRjXM+yYf2frlqLzv3gqTuPO6EgsT4bK3fJJ7hRMig/c1P4/JwqzwT8i9QcjVNI/EClcywToVkUnZ97ml0i//IATi6KupyUqX7oT8rMhiYTk5gBZUjml+/oYQxV/AeuDbbuOV5r0QTwIUV62krm6MVMgGCDf1qtTiOAnaWaMLIyAxfuMQueeqwzGB73tFAKu6DU/9cRlTuVLAYimBuseUW6rtrgbIIFM5My2WKF5Hu+uRVHvVC6g/GmyROGTm6+W7OLcnd80thKcbtcUNiWLbekSHkQq+oDCWUkXrgeL5xHLxrfhXqZBjJlmqqldVZr0/sm7pe9ERqjU5uU9chSAVNYLrtO21FyViy+x+mqXPtNrL8tFCofxmBdKFpnxQdlNQYtjil4O4U80hvApGOp5iYtWLUCdQ8t2qJuKZTqx0DDsZIx8HgvOKKRAE=
-  skip_cleanup: true
-  region: ap-northeast-1
-  app: "Korean Dining Advisor" 
-  env: koreanDiningAdvisor
-  bucket_name: elasticbeanstalk-ap-northeast-1-643450138318
-  edge: true
+  provider: openshift
+  user: danielchabr@gmail.com
+  password:
+    secure: iC2BAAPeLLos1ZpZ+GhTPTYHUcbiIYmEHRgU7vlSGkAYO6dLddubbPddY/lF6eCOcjguGEGYyn2XC5lC2oPnZPGDbwiVpqksiK5KST2y3iEH+Ww52ysMSmof9exb2Pt/fF4ZXlygtrgB6VHN5bNM7Uv76CAn8OVcb4CGiC5YP/hwY4+usUIsqo62R5gAYtLn7SbivRcFZYarzpg6jBk6fqj92PkMZJQ6Mxaj0334nbeJPd/z5y11Ia+3YanCGhSh3OV1g+0eGPww2AX7qtL4jukz71XwA8WInB7W5Exilr1xSNpOFV0fSk8lhPL2i+eyoRcGecL5LEKsnWtZH1EchEFQpPRKWM9tsIOsK9jRl3P9COlY4Rl/JS7kVVN300g7FciX76PAGCDuybMqtftx67s1TeGi04UcHkxxU1gCx3waXbGLfWkhg+8bsh3MqCBoYcZ2JlgDPnlm2ASsounW3Ho8r9clcgNqfJMevAyerj7GfBUEfPgkBMCfTj3rtRy9L3Pd7ujVDunJt5zjkzOD/vevj0NNusuOQ74GEnXASLR34x354hkWX8iK4WZceS9BHouW9L5j7JdcwJghNNeNEvtvjMUb/C0RGWfGT3SuAMvEwG+SwQcgwMq4pFXINi8kvD7911tCsCAh5MMjEyktJKEKsJIy7YQ2fqlfH716+nI=
+  app: koreandiningadvisor
+  domain: damell
+  on:
+    repo: Damell/Korean-dining-advisor
