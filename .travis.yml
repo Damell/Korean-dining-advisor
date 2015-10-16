@@ -3,11 +3,12 @@ jdk:
 - oraclejdk8
 deploy:
   provider: elasticbeanstalk
+  endpoint: "s3-website-ap-northeast-1.amazonaws.com"
   access_key_id: AKIAJY6HC5JNYO5A5VHA
   secret_access_key:
     secure: H4aTk7FKqhOCg7rZ4f4kaWPTl++kxTY8KnQeFP6kqWzBAYurJMkK+EJ14VK/RqiIrnvi3MSA9kXw+QNU5w1dio/sLHVgWk/LM7Hmlgk43RA8lA8tDvAK5C0iVIvuyXSFaK3Y0QtyL6q7V2xREJrzgSPYnDaYjTeEAae10H7dLmFI5/HVhHhMdZ1GtJyrblUVduD5F38EU1s1RsNNzhFfXAIep7J/azP9mp5aq82HjnAAl0+76lWRjXM+yYf2frlqLzv3gqTuPO6EgsT4bK3fJJ7hRMig/c1P4/JwqzwT8i9QcjVNI/EClcywToVkUnZ97ml0i//IATi6KupyUqX7oT8rMhiYTk5gBZUjml+/oYQxV/AeuDbbuOV5r0QTwIUV62krm6MVMgGCDf1qtTiOAnaWaMLIyAxfuMQueeqwzGB73tFAKu6DU/9cRlTuVLAYimBuseUW6rtrgbIIFM5My2WKF5Hu+uRVHvVC6g/GmyROGTm6+W7OLcnd80thKcbtcUNiWLbekSHkQq+oDCWUkXrgeL5xHLxrfhXqZBjJlmqqldVZr0/sm7pe9ERqjU5uU9chSAVNYLrtO21FyViy+x+mqXPtNrL8tFCofxmBdKFpnxQdlNQYtjil4O4U80hvApGOp5iYtWLUCdQ8t2qJuKZTqx0DDsZIx8HgvOKKRAE=
   skip_cleanup: true
-  region: ap-southeast-1
+  region: ap-northeast-1
   app: koreanDiningAdvisor
   env: koreanDiningAdvisor
   bucket_name: elasticbeanstalk-ap-northeast-1-643450138318
