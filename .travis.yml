@@ -1,7 +1,8 @@
 language: java
-script: mvn package -Popenshift
+
 jdk:
   - oraclejdk8
+
 deploy:
   provider: openshift
   user: danielchabr@gmail.com

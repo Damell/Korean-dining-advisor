@@ -20,7 +20,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 
 war {
-	baseName = 'myapp'
+	baseName = 'KoreanDiningAdvisor'
 	version =  '0.5.0'
 }
 
