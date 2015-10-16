@@ -5,8 +5,7 @@
 
 	<groupId>kr.ac.ajou.dsd.kda</groupId>
 	<artifactId>KoreanDiningAdvisor</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>0.0.1</version>
 
 	<name>KoreanDiningAdvisor</name>
 	<description>Demo project for Spring Boot</description>
@@ -62,6 +61,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+        			<classifier>boot</classifier>
+    			</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -91,4 +93,5 @@
 			</build>
 		</profile>
 	</profiles>
+	<packaging>war</packaging>
 </project>
