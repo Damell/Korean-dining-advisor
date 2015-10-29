@@ -30,7 +30,7 @@ public class MealController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody List<IMeal> getMeals(
-			@RequestParam(value="query", required=false) String query, 
+			@RequestParam(value="query", required=false, defaultValue="") String query, 
 			@RequestParam(value="limit", required=false, defaultValue="10") int limit,
 			@RequestParam(value="start", required=false, defaultValue="0") int start) {
 		
