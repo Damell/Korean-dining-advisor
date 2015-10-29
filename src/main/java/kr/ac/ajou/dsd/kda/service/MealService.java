@@ -30,7 +30,7 @@ public class MealService implements IMealService{
 
 	@Override
 	public List<IMeal> getMeals(String query, int limit, int start) {
-		if(query.isEmpty()) {
+		if(query.isEmpty() || query == null) {
 			log.info("getall() for empty query");
 			return mealRepository.getall();
 		}
