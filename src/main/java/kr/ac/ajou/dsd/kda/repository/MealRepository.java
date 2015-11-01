@@ -24,7 +24,7 @@ public class MealRepository implements IMealRepository{
 	public MealRepository() {
 		this.meals = new HashMap<UUID, IMeal>();
 		IMeal m = new Meal();
-		meals.put(m.getUUID(), m);
+		meals.put(m.getMealId(), m);
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class MealRepository implements IMealRepository{
 
 	@Override
 	public void add(IMeal meal) {
-		meals.put(meal.getUUID(), meal);
+		meals.put(meal.getMealId(), meal);
 	}
 
 	@Override

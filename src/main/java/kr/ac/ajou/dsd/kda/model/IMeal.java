@@ -4,6 +4,10 @@ import java.util.UUID;
 
 public interface IMeal {
 
-	UUID getUUID();
+	public static final int Stew = 1;
+	public static final int Rice = 2;
+	public static final int Noodle = 3;
+	
+	UUID getMealId();
 
 }
