@@ -7,7 +7,7 @@ public class Test {
         User u1 = new User("123","123","123");
         System.out.println(u1.getSalt());
         System.out.println(u1.getPwHashed());
-        System.out.println(Creatpassword.checkPassword(u1, "123"));
+        System.out.println(CreatePassword.checkPassword(u1, "123"));
         
 
 	}

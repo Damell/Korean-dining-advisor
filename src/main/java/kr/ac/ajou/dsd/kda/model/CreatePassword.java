@@ -7,7 +7,8 @@ import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Base64.Encoder;
 
-public class Creatpassword {
+//taken from http://armoredbarista.blogspot.kr/2013/07/safely-create-and-store-passwords.html
+public class CreatePassword {
 	
     public static final String HASH_ALGORITHM = "SHA-256"; 
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");

@@ -23,8 +23,8 @@ public class User implements IUser {
 		this.userName = userName;
 		this.eMail = eMail;
 		this.passWord = passWord;
-		this.salt = Creatpassword.getRandomString(32);
-		this.pwHashed = Creatpassword.encoder.encodeToString(Creatpassword.createPasswordHash(passWord, salt));
+		this.salt = CreatePassword.getRandomString(32);
+		this.pwHashed = CreatePassword.encoder.encodeToString(CreatePassword.createPasswordHash(passWord, salt));
 	}
 
 	public String getUserName() {
