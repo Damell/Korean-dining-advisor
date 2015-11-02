@@ -4,11 +4,21 @@ jdk:
   - oraclejdk8
 
 deploy:
-  provider: openshift
-  user: danielchabr@gmail.com
-  password:
-    secure: "mn3RtcWATRk4FaxDhwEl6ljspvVErySu5AvdFRYbe9YDEXqQPZaW7rP8538/k2BuuzIqpfe85idCBOXzJcmD92MhwCNHkifBLXzFjo2Fbs4qKKWNL099b4dsf4HGJW8oa1BZohBMLycmo60n1J2CHLGDWYVQl5UtAJiKTQEyHYj2V7EGb5DH9h01OPfsLjWF2EjjpWANzg/CI7xsiKOhnlioV12AAnSmlcF1mvcRe2hXqDdER14tdDDx51bo0ZATrQb+FcuGh73lZiMhRWi8dSl5RIv+3sfg1QoWyWR3bEmTA29vvU4wA2t3zSk7Nc+L1x4czq3K5iPp8ZhrPfMitFgpdrRy4LEuuRC2iXwEn8DjuFTsCbbg7LL9poXcwkASCXrGn42SkeSzWtKHWnb95x8EaXWFEfWXbfNv7SfvvFO5aJtNjbR4mMq9Uvkqi81414L+6kutzw1xjoM7FvLM4ZFKftPFalW9RqENofA19P0taM0kZlWR48tA5lY8auW0S1rLpfecUihyvD4QVA7X5Fs+9wuhep5RTPNYDpCi8U/11xasOTOUMfNllUY2wIKwbnDKr4CdX3cvfqgBTpmiRrQOxdVOaFfCCJqfkMGjhiMtOBALfa9x5PZjSBdTV0C4p7YDDJzVCHujYqLQZmVs9lzmhEo85LtP03NtW1giomQ="
-  app: kda
-  domain: damell
-  on:
-    repo: Damell/Korean-dining-advisor
+  - provider: openshift
+    user: danielchabr@gmail.com
+    password:
+      secure: "mn3RtcWATRk4FaxDhwEl6ljspvVErySu5AvdFRYbe9YDEXqQPZaW7rP8538/k2BuuzIqpfe85idCBOXzJcmD92MhwCNHkifBLXzFjo2Fbs4qKKWNL099b4dsf4HGJW8oa1BZohBMLycmo60n1J2CHLGDWYVQl5UtAJiKTQEyHYj2V7EGb5DH9h01OPfsLjWF2EjjpWANzg/CI7xsiKOhnlioV12AAnSmlcF1mvcRe2hXqDdER14tdDDx51bo0ZATrQb+FcuGh73lZiMhRWi8dSl5RIv+3sfg1QoWyWR3bEmTA29vvU4wA2t3zSk7Nc+L1x4czq3K5iPp8ZhrPfMitFgpdrRy4LEuuRC2iXwEn8DjuFTsCbbg7LL9poXcwkASCXrGn42SkeSzWtKHWnb95x8EaXWFEfWXbfNv7SfvvFO5aJtNjbR4mMq9Uvkqi81414L+6kutzw1xjoM7FvLM4ZFKftPFalW9RqENofA19P0taM0kZlWR48tA5lY8auW0S1rLpfecUihyvD4QVA7X5Fs+9wuhep5RTPNYDpCi8U/11xasOTOUMfNllUY2wIKwbnDKr4CdX3cvfqgBTpmiRrQOxdVOaFfCCJqfkMGjhiMtOBALfa9x5PZjSBdTV0C4p7YDDJzVCHujYqLQZmVs9lzmhEo85LtP03NtW1giomQ="
+    app: kda
+    domain: damell
+    on:
+      branch: master
+      repo: Damell/Korean-dining-advisor
+  - provider: openshift
+    user: danielchabr@gmail.com
+    password:
+      secure: "mn3RtcWATRk4FaxDhwEl6ljspvVErySu5AvdFRYbe9YDEXqQPZaW7rP8538/k2BuuzIqpfe85idCBOXzJcmD92MhwCNHkifBLXzFjo2Fbs4qKKWNL099b4dsf4HGJW8oa1BZohBMLycmo60n1J2CHLGDWYVQl5UtAJiKTQEyHYj2V7EGb5DH9h01OPfsLjWF2EjjpWANzg/CI7xsiKOhnlioV12AAnSmlcF1mvcRe2hXqDdER14tdDDx51bo0ZATrQb+FcuGh73lZiMhRWi8dSl5RIv+3sfg1QoWyWR3bEmTA29vvU4wA2t3zSk7Nc+L1x4czq3K5iPp8ZhrPfMitFgpdrRy4LEuuRC2iXwEn8DjuFTsCbbg7LL9poXcwkASCXrGn42SkeSzWtKHWnb95x8EaXWFEfWXbfNv7SfvvFO5aJtNjbR4mMq9Uvkqi81414L+6kutzw1xjoM7FvLM4ZFKftPFalW9RqENofA19P0taM0kZlWR48tA5lY8auW0S1rLpfecUihyvD4QVA7X5Fs+9wuhep5RTPNYDpCi8U/11xasOTOUMfNllUY2wIKwbnDKr4CdX3cvfqgBTpmiRrQOxdVOaFfCCJqfkMGjhiMtOBALfa9x5PZjSBdTV0C4p7YDDJzVCHujYqLQZmVs9lzmhEo85LtP03NtW1giomQ="
+    app: kdadev
+    domain: damell
+    on:
+      branch: development
+      repo: Damell/Korean-dining-advisor
