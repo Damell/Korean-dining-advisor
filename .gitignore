@@ -15,3 +15,6 @@ hs_err_pid*
 
 /media
 /target/
+
+# don't sync the key file for external APIs
+externalAPIConfig.properties
