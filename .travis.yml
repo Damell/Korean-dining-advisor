@@ -1,7 +1,14 @@
 language: java
+sudo: false
 
 jdk:
   - oraclejdk8
+
+before_script:
+  - pip install --user codecov
+
+after_success:
+  - codecov
 
 deploy:
   - provider: openshift

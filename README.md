@@ -1,4 +1,4 @@
-# Korean-dining-advisor [![Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=master)](https://travis-ci.org/Damell/Korean-dining-advisor) [![Dev Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=development)](https://travis-ci.org/Damell/Korean-dining-advisor) [![Coverage Status](https://coveralls.io/repos/Damell/Korean-dining-advisor/badge.svg?branch=master&service=github)](https://coveralls.io/github/Damell/Korean-dining-advisor?branch=master)
+# Korean-dining-advisor [![Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=master)](https://travis-ci.org/Damell/Korean-dining-advisor) [![Dev Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=development)](https://travis-ci.org/Damell/Korean-dining-advisor) [![Dev Code Coverage](https://codecov.io/github/Damell/Korean-dining-advisor/coverage.svg?branch=development)](https://codecov.io/github/Damell/Korean-dining-advisor?branch=development)
 The goal of this project is to design and implement a platform that will provide foreigners with an easy way of ordering meal in restaurants in Korea.
 
 ## Background
