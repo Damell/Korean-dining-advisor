@@ -1,5 +1,7 @@
 package kr.ac.ajou.dsd.kda.model;
 
+import javax.xml.bind.DatatypeConverter;
+
 import kr.ac.ajou.dsd.kda.util.PasswordUtil;
 
 public class User {
@@ -15,7 +17,7 @@ public class User {
 
 	public void setPassword(String password) {
 		this.salt = PasswordUtil.getRandomString(32);
-		this.pwHashed = PasswordUtil.encoder.encodeToString(PasswordUtil.createPasswordHash(password, salt));
+		this.pwHashed = DatatypeConverter.printBase64Binary(PasswordUtil.createPasswordHash(password, salt));
 	}
 
 	public User(String username, String email, String password) {

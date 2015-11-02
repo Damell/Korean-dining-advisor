@@ -4,8 +4,8 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Base64;
-import java.util.Base64.Encoder;
+
+import javax.xml.bind.DatatypeConverter;
 
 import kr.ac.ajou.dsd.kda.model.User;
 
@@ -21,7 +21,6 @@ public class PasswordUtil {
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-    public static Encoder encoder = Base64.getEncoder();
 
     public static String getRandomString(final int length) {
          
@@ -54,7 +53,7 @@ public class PasswordUtil {
     public static boolean checkPassword(final String hashedPassword, final String salt, final String password) {
         boolean result = false;
         byte[] checkPasswordHashBytes = createPasswordHash(password, salt);
-        String checkPasswordHash = encoder.encodeToString(checkPasswordHashBytes); 
+        String checkPasswordHash = DatatypeConverter.printBase64Binary(checkPasswordHashBytes); 
 
         if (checkPasswordHash != null && hashedPassword != null
                 && checkPasswordHash.equals(hashedPassword)) {
