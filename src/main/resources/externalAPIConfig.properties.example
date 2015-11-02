@@ -1,0 +1,11 @@
+# Example file for the configuration of the external APIs
+
+# Copy this file, delete the ".example" extension. Than uncomment the variables and add your API keys.
+# Please make sure that the copied file with the keys is in your .gitignore file and is NOT synchronized
+
+# Naver image API key
+#naver_image_key=
+
+# MSDN translation API access data 
+#microsoft_translate_clientID=
+#microsoft_translate_clientsecret=
