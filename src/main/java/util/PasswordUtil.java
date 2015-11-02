@@ -1,4 +1,4 @@
-package kr.ac.ajou.dsd.kda.model;
+package util;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
@@ -7,8 +7,10 @@ import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.Base64.Encoder;
 
+import kr.ac.ajou.dsd.kda.model.User;
+
 //taken from http://armoredbarista.blogspot.kr/2013/07/safely-create-and-store-passwords.html
-public class CreatePassword {
+public class PasswordUtil {
 	
     public static final String HASH_ALGORITHM = "SHA-256"; 
     public static final Charset DEFAULT_CHARSET = Charset.forName("UTF-8");
@@ -49,15 +51,13 @@ public class CreatePassword {
         return result;
     }
 
-    public static boolean checkPassword(final User user, final String password) {
+    public static boolean checkPassword(final String hashedPassword, final String salt, final String password) {
         boolean result = false;
-        String storedPasswordHash = user.getPwHashed();
-        String salt = user.getSalt();
         byte[] checkPasswordHashBytes = createPasswordHash(password, salt);
         String checkPasswordHash = encoder.encodeToString(checkPasswordHashBytes); 
 
-        if (checkPasswordHash != null && storedPasswordHash != null
-                && checkPasswordHash.equals(storedPasswordHash)) {
+        if (checkPasswordHash != null && hashedPassword != null
+                && checkPasswordHash.equals(hashedPassword)) {
             result = true;
         }
 

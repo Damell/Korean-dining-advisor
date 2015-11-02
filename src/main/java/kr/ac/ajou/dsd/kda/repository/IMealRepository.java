@@ -5,17 +5,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import kr.ac.ajou.dsd.kda.model.IMeal;
+
+import kr.ac.ajou.dsd.kda.model.Meal;
 
 public interface IMealRepository {
-	public IMeal getMeal(UUID uuid);
-	public Map<UUID, IMeal> search(String query);
+	public Meal getMeal(UUID uuid);
+	public Map<UUID, Meal> search(String query);
 
-	public void add(IMeal meal);
-	public void update(IMeal meal);
+	public void add(Meal meal);
+	public void update(Meal meal);
 
 	public void delete(UUID uuid);
-	public Collection<? extends IMeal> findInAllNames(String query);
-	public List<IMeal> getall();
+	public Collection<? extends Meal> findInAllNames(String query);
+	public List<Meal> getall();
 
 }

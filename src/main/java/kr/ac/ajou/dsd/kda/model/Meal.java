@@ -1,73 +1,79 @@
 package kr.ac.ajou.dsd.kda.model;
 
+import java.util.List;
 import java.util.UUID;
 
-public class Meal implements IMeal {
+public class Meal  {
 	
-	static int count = 0;
 	
-	private int mealNum;
-	private UUID mealId;
+	private UUID id;
 	private String koreanName;
-	private String translatedName;
+	private String englishName;
 	private String transliteratedName;
 	private String description;
 	private String[] ingredients;
+	private List<Category> category;
 	
 	private byte[] mealPic;
 	
-
+	private Rating rating;
 	private int viewNum;
 	private int spicyGrade;
 	
-	{
-		++count;
-		mealNum = count;
-		
-	}
 	
 	public Meal() {
 		
 		
 	}
 	
-	public Meal(String koreanName, String translatedName, String transliteratedName, String description,
-			String[] ingredients, byte[] mealPic, int viewNum, int spicyGrade) {
+	public Meal(String koreanName, String englishName, String transliteratedName, String description,
+			String[] ingredients, byte[] mealPic, Rating rating, int viewNum, int spicyGrade) {
 		super();
 		this.koreanName = koreanName;
-		this.translatedName = translatedName;
+		this.englishName = englishName;
 		this.transliteratedName = transliteratedName;
 		this.description = description;
 		this.ingredients = ingredients;
 		this.mealPic = mealPic;
+		this.rating = rating;
 		this.viewNum = viewNum;
 		this.spicyGrade = spicyGrade;
-		this.mealId = UUID.randomUUID();
+		this.id = UUID.randomUUID();
 	}
 	
 	
-	public int getMealNum() {
-		return mealNum;
-	}
 	
-	public void setMealNum(int mealId) {
-		this.mealNum = mealNum;
-	}
 	
+	public String getEnglishName() {
+		return englishName;
+	}
+
+	public void setEnglishName(String englishName) {
+		this.englishName = englishName;
+	}
+
+	public List<Category> getCategory() {
+		return category;
+	}
+
+	public void setCategory(List<Category> category) {
+		this.category = category;
+	}
+
+	public Rating getRating() {
+		return rating;
+	}
+
+	public void setRating(Rating rating) {
+		this.rating = rating;
+	}
+
 	public String getKoreanName() {
 		return koreanName;
 	}
 	
 	public void setKoreanName(String koreanName) {
 		this.koreanName = koreanName;
-	}
-	
-	public String getTranslatedName() {
-		return translatedName;
-	}
-	
-	public void setTranslatedName(String translatedName) {
-		this.translatedName = translatedName;
 	}
 	
 	public String getTransliteratedName() {
@@ -118,21 +124,12 @@ public class Meal implements IMeal {
 		this.spicyGrade = spicyGrade;
 	}
 
-	public static int getCount() {
-		return count;
+	public UUID getId() {
+		return id;
 	}
 
-
-	public static void setCount(int count) {
-		Meal.count = count;
-	}
-
-	public UUID getMealId() {
-		return mealId;
-	}
-
-	public void setMealId(UUID mealId) {
-		this.mealId = mealId;
+	public void setId(UUID mealId) {
+		this.id = mealId;
 	}
 
 	

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
-import kr.ac.ajou.dsd.kda.model.IMeal;
+import kr.ac.ajou.dsd.kda.model.Meal;
 import kr.ac.ajou.dsd.kda.repository.IMealRepository;
 
 /**
@@ -29,13 +29,13 @@ public class MealService implements IMealService{
 	}
 
 	@Override
-	public List<IMeal> getMeals(String query, int limit, int start) {
+	public List<Meal> getMeals(String query, int limit, int start) {
 		if(query.isEmpty() || query == null) {
 			log.info("getall() for empty query");
 			return mealRepository.getall();
 		}
 		
-		List<IMeal> mealsFilteredByQuery = new ArrayList<IMeal>();
+		List<Meal> mealsFilteredByQuery = new ArrayList<Meal>();
 
 		// TODO use find method
 		mealsFilteredByQuery.addAll(mealRepository.getall());
@@ -46,14 +46,14 @@ public class MealService implements IMealService{
 		} else {
 			if(limit >= start) {
 //				just limit the mealsList
-				List<IMeal> mealsFilteredAndLimited = new ArrayList<IMeal>(); 
+				List<Meal> mealsFilteredAndLimited = new ArrayList<Meal>(); 
 				for(int i = 0; i < limit; i++ ) {
 					mealsFilteredAndLimited.add(mealsFilteredAndLimited.get(i));
 				}
 				return mealsFilteredAndLimited;
 			} else {
 //				 limit and shift
-				List<IMeal> mealsFilteredAndLimited = new ArrayList<IMeal>();
+				List<Meal> mealsFilteredAndLimited = new ArrayList<Meal>();
 				for (int i = start; i < limit + start; i++) {
 					mealsFilteredAndLimited.add(mealsFilteredAndLimited.get(i));
 				}
@@ -64,17 +64,17 @@ public class MealService implements IMealService{
 	}
 
 	@Override
-	public IMeal getMealById(UUID uuid) {
+	public Meal getMealById(UUID uuid) {
 		return mealRepository.getMeal(uuid);
 	}
 
 	@Override
-	public void insertMeal(IMeal meal) {
+	public void insertMeal(Meal meal) {
 		mealRepository.add(meal);
 	}
 
 	@Override
-	public void updateMeal(IMeal meal) {
+	public void updateMeal(Meal meal) {
 		mealRepository.update(meal);
 	}
 

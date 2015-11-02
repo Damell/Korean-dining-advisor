@@ -9,8 +9,9 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import kr.ac.ajou.dsd.kda.model.IMeal;
+
 import kr.ac.ajou.dsd.kda.model.Meal;
+import kr.ac.ajou.dsd.kda.model.Rating;
 
 /**
  * 
@@ -19,32 +20,38 @@ import kr.ac.ajou.dsd.kda.model.Meal;
  */
 @Repository
 public class MealRepository implements IMealRepository{
-	private Map<UUID, IMeal> meals;
+	private Map<UUID, Meal> meals;
 	
 	public MealRepository() {
-		this.meals = new HashMap<UUID, IMeal>();
-		IMeal m = new Meal();
-		meals.put(m.getMealId(), m);
+		String[] str = new String[10];
+		byte[] byt = new byte[10];
+		this.meals = new HashMap<UUID, Meal>();
+		Meal meal1 = new Meal("김치찌개","kimchi stew", "kimchiggigae","most famous korean food", str, byt, new Rating(), 10, 10);
+		Meal meal2 = new Meal("불고기","meat", "bulgogi","most famous korean food", str, byt, new Rating(), 10, 10);
+		Meal meal3 = new Meal("라면","noodle", "raman","most famous korean food", str, byt, new Rating(), 10, 10);
+		meals.put(meal1.getId(), meal1);
+		meals.put(meal2.getId(), meal2);
+		meals.put(meal3.getId(), meal3);
 	}
 
 	@Override
-	public IMeal getMeal(UUID uuid) {
+	public Meal getMeal(UUID uuid) {
 		return meals.get(uuid);
 	}
 
 	@Override
-	public Map<UUID, IMeal> search(String query) {
+	public Map<UUID, Meal> search(String query) {
 		// TODO implement searching
 		return meals;
 	}
 
 	@Override
-	public void add(IMeal meal) {
-		meals.put(meal.getMealId(), meal);
+	public void add(Meal meal) {
+		meals.put(meal.getId(), meal);
 	}
 
 	@Override
-	public void update(IMeal meal) {
+	public void update(Meal meal) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -55,14 +62,14 @@ public class MealRepository implements IMealRepository{
 	}
 
 	@Override
-	public Collection<? extends IMeal> findInAllNames(String query) {
+	public Collection<? extends Meal> findInAllNames(String query) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<IMeal> getall() {
-		return new ArrayList<IMeal>(meals.values());
+	public List<Meal> getall() {
+		return new ArrayList<Meal>(meals.values());
 	}
 	
 

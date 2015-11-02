@@ -1,66 +1,52 @@
 package kr.ac.ajou.dsd.kda.model;
 
-public class User implements IUser {
+import util.PasswordUtil;
+
+public class User {
 	
-	private String userName;
-	private String eMail;
-	private String passWord;
+	private String username;
+	private String email;
 	private String salt;
 	private String pwHashed;
-	
 
-
-	public String getPwHashed() {
-		return pwHashed;
+	public boolean checkPassword(String password) {
+		return PasswordUtil.checkPassword(this.pwHashed, this.salt, password);
 	}
 
-	public void setPwHashed(String pwHashed) {
-		this.pwHashed = pwHashed;
+	public void setPassword(String password) {
+		this.salt = PasswordUtil.getRandomString(32);
+		this.pwHashed = PasswordUtil.encoder.encodeToString(PasswordUtil.createPasswordHash(password, salt));
 	}
 
-	public User(String userName, String eMail, String passWord) {
+	public User(String username, String email, String password) {
 		super();
-		this.userName = userName;
-		this.eMail = eMail;
-		this.passWord = passWord;
-		this.salt = CreatePassword.getRandomString(32);
-		this.pwHashed = CreatePassword.encoder.encodeToString(CreatePassword.createPasswordHash(passWord, salt));
+		this.username = username;
+		this.email = email;
+		setPassword(password);
 	}
 
-	public String getUserName() {
-		return userName;
+	public User() {
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public String getUsername() {
+		return username;
 	}
 
-	public String geteMail() {
-		return eMail;
+	public void setUsername(String userName) {
+		this.username = userName;
 	}
 
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getPassWord() {
-		return passWord;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
-	}
-	
+
 	public String getSalt() {
 		return salt;
 	}
-
-	public void setSalt(String salt) {
-		this.salt = salt;
-	}
-	
-	
-	
-	
 
 }
