@@ -1,4 +1,4 @@
-package util;
+package kr.ac.ajou.dsd.kda.util;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;

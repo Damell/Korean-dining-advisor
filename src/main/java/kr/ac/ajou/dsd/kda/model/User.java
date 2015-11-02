@@ -1,6 +1,6 @@
 package kr.ac.ajou.dsd.kda.model;
 
-import util.PasswordUtil;
+import kr.ac.ajou.dsd.kda.util.PasswordUtil;
 
 public class User {
 	
