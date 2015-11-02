@@ -18,3 +18,10 @@ hs_err_pid*
 
 # don't sync the key file for external APIs
 externalAPIConfig.properties
+
+# web app dependencies
+/node_modules
+/dist
+/.tmp
+/.sass-cache
+/bower_components

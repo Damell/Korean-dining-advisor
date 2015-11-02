@@ -1,0 +1,31 @@
+<h2>Korean Dining Advisor</h2>
+<h4>Meals</h4>
+<p class="lead">
+<div class="jumbotron" ng-repeat="meal in meals">
+	<table>
+		<tr>
+			<td>
+				Korean Name:
+			</td>
+			<td>
+				{{ meal.koreanName }}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				English Name:
+			</td>
+			<td>
+				{{ meal.englishName }}
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Description:
+			</td>
+			<td>
+				{{ meal.description }}
+			</td>
+		</tr>
+	</table>
+</div>
