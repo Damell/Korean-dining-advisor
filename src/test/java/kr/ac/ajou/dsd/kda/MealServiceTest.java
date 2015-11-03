@@ -7,13 +7,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 
 import kr.ac.ajou.dsd.kda.model.Meal;
 import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.service.IMealService;
 
-@Transactional
 public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 
 	@Autowired
