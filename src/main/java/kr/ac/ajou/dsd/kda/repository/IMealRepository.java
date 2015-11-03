@@ -10,13 +10,12 @@ import kr.ac.ajou.dsd.kda.model.Meal;
 
 public interface IMealRepository {
 	public Meal getMeal(UUID uuid);
-	public Map<UUID, Meal> search(String query);
+	public Collection<? extends Meal> getMealsByName(String query);
 
 	public void add(Meal meal);
 	public void update(Meal meal);
 
 	public void delete(UUID uuid);
-	public Collection<? extends Meal> findInAllNames(String query);
-	public List<Meal> getall();
+	public List<Meal> getAll();
 
 }

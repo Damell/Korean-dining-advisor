@@ -40,12 +40,6 @@ public class MealRepository implements IMealRepository{
 	}
 
 	@Override
-	public Map<UUID, Meal> search(String query) {
-		// TODO implement searching
-		return meals;
-	}
-
-	@Override
 	public void add(Meal meal) {
 		meals.put(meal.getId(), meal);
 	}
@@ -62,13 +56,13 @@ public class MealRepository implements IMealRepository{
 	}
 
 	@Override
-	public Collection<? extends Meal> findInAllNames(String query) {
+	public Collection<? extends Meal> getMealsByName(String query) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Meal> getall() {
+	public List<Meal> getAll() {
 		return new ArrayList<Meal>(meals.values());
 	}
 	

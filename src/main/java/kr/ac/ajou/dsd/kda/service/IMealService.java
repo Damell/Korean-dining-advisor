@@ -9,7 +9,7 @@ public interface IMealService {
 	public List<Meal> getMeals(String query, int limit, int start);
 	public Meal getMealById(UUID uuid);
 	
-	public void insertMeal(Meal meal);
+	public void addMeal(Meal meal);
 	public void updateMeal(Meal meal);
 	
 	public void deleteMealById(UUID uuid);

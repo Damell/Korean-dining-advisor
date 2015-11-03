@@ -32,13 +32,13 @@ public class MealService implements IMealService{
 	public List<Meal> getMeals(String query, int limit, int start) {
 		if(query.isEmpty() || query == null) {
 			log.info("getall() for empty query");
-			return mealRepository.getall();
+			return mealRepository.getAll();
 		}
 		
 		List<Meal> mealsFilteredByQuery = new ArrayList<Meal>();
 
 		// TODO use find method
-		mealsFilteredByQuery.addAll(mealRepository.getall());
+		mealsFilteredByQuery.addAll(mealRepository.getAll());
 //		mealsFilteredByQuery.addAll(mealRepository.findInAllNames(query));
 
 		if(mealsFilteredByQuery.size() < limit) {
@@ -69,7 +69,7 @@ public class MealService implements IMealService{
 	}
 
 	@Override
-	public void insertMeal(Meal meal) {
+	public void addMeal(Meal meal) {
 		mealRepository.add(meal);
 	}
 
