@@ -1,5 +1,7 @@
 package kr.ac.ajou.dsd.kda.model;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public class Rating {
 	
 	private int numUsersRated;
@@ -10,6 +12,7 @@ public class Rating {
 		this.numUsersRated = 0;
 	}
 	
+	@JsonValue
 	public int getRating() {
 		return rating;
 	}
