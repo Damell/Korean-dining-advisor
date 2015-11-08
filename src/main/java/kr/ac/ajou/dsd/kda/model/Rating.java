@@ -12,6 +12,10 @@ public class Rating {
 		this.numUsersRated = 0;
 	}
 	
+	public Rating(int rating){
+		setRating(rating);
+	}
+	
 	@JsonValue
 	public int getRating() {
 		return rating;

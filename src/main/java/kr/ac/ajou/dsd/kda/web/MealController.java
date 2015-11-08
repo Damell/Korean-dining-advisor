@@ -46,7 +46,7 @@ public class MealController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.OK)
-	public void addMeal(@Validated @RequestBody(required=true) Meal meal){
+	public void addMeal(@RequestBody(required=true) Meal meal){
 		logger.info("add a meal");
 		mealService.addMeal(meal);
 	}
