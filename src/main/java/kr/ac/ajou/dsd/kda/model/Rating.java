@@ -1,7 +1,10 @@
 package kr.ac.ajou.dsd.kda.model;
 
+import javax.persistence.Embeddable;
+
 import com.fasterxml.jackson.annotation.JsonValue;
 
+@Embeddable
 public class Rating {
 	
 	private int numUsersRated;

@@ -21,6 +21,7 @@ import kr.ac.ajou.dsd.kda.repository.IMealRepository;
 public class MealService implements IMealService{
 	final private Logger log = Logger.getLogger(KoreanDiningAdvisorApplication.class.getName()); 
 	
+	@Autowired
 	private IMealRepository mealRepository;
 
 	@Autowired
@@ -32,13 +33,13 @@ public class MealService implements IMealService{
 	public List<Meal> getMeals(String query, int limit, int start) {
 		if(query.isEmpty() || query == null) {
 			log.info("getall() for empty query");
-			return mealRepository.getAll();
+			return mealRepository.findAll();
 		}
 		
 		List<Meal> mealsFilteredByQuery = new ArrayList<Meal>();
 
 		// TODO use find method
-		mealsFilteredByQuery.addAll(mealRepository.getAll());
+		mealsFilteredByQuery.addAll(mealRepository.findAll());
 //		mealsFilteredByQuery.addAll(mealRepository.findInAllNames(query));
 
 		if(mealsFilteredByQuery.size() < limit) {
@@ -65,17 +66,17 @@ public class MealService implements IMealService{
 
 	@Override
 	public Meal getMealById(UUID uuid) {
-		return mealRepository.getMeal(uuid);
+		return null;//mealRepository.getMeal(uuid);
 	}
 
 	@Override
 	public void addMeal(Meal meal) {
-		mealRepository.add(meal);
+		mealRepository.save(meal);
 	}
 
 	@Override
 	public void updateMeal(Meal meal) {
-		mealRepository.update(meal);
+		//mealRepository.update(meal);
 	}
 
 	@Override
