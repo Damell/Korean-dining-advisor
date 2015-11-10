@@ -2,6 +2,8 @@ package kr.ac.ajou.dsd.kda;
 
 import java.util.Collection;
 
+import javax.transaction.Transactional;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,6 +14,7 @@ import kr.ac.ajou.dsd.kda.model.Meal;
 import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.service.IMealService;
 
+@Transactional
 public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 
 	@Autowired
