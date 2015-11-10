@@ -1,7 +1,12 @@
 package kr.ac.ajou.dsd.kda.model;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+import javax.persistence.Embeddable;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@Embeddable
 public class Rating {
 	
 	private int numUsersRated;
@@ -20,6 +25,7 @@ public class Rating {
 	public int getRating() {
 		return rating;
 	}
+	@JsonCreator
 	public void setRating(int ratingNew) {
 		if (ratingNew > 5 || ratingNew < 0) return;
 		this.rating = (rating * numUsersRated + ratingNew) / (numUsersRated + 1);
