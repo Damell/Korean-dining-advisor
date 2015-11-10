@@ -31,42 +31,12 @@ public class MealService implements IMealService{
 
 	@Override
 	public List<Meal> getMeals(String query, int limit, int start) {
-		if(query.isEmpty() || query == null) {
-			log.info("getall() for empty query");
-			return mealRepository.findAll();
-		}
-		
-		List<Meal> mealsFilteredByQuery = new ArrayList<Meal>();
-
-		// TODO use find method
-		mealsFilteredByQuery.addAll(mealRepository.findAll());
-//		mealsFilteredByQuery.addAll(mealRepository.findInAllNames(query));
-
-		if(mealsFilteredByQuery.size() < limit) {
-			return mealsFilteredByQuery;
-		} else {
-			if(limit >= start) {
-//				just limit the mealsList
-				List<Meal> mealsFilteredAndLimited = new ArrayList<Meal>(); 
-				for(int i = 0; i < limit; i++ ) {
-					mealsFilteredAndLimited.add(mealsFilteredAndLimited.get(i));
-				}
-				return mealsFilteredAndLimited;
-			} else {
-//				 limit and shift
-				List<Meal> mealsFilteredAndLimited = new ArrayList<Meal>();
-				for (int i = start; i < limit + start; i++) {
-					mealsFilteredAndLimited.add(mealsFilteredAndLimited.get(i));
-				}
-				return mealsFilteredAndLimited;
-			}
-				
-		}
+		return mealRepository.findAll();
 	}
 
 	@Override
 	public Meal getMealById(UUID uuid) {
-		return null;//mealRepository.getMeal(uuid);
+		return mealRepository.findOne(uuid);
 	}
 
 	@Override
@@ -76,7 +46,7 @@ public class MealService implements IMealService{
 
 	@Override
 	public void updateMeal(Meal meal) {
-		//mealRepository.update(meal);
+		mealRepository.save(meal);
 	}
 
 	@Override
