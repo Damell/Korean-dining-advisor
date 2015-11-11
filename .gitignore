@@ -25,3 +25,6 @@ externalAPIConfig.properties
 /.tmp
 /.sass-cache
 /bower_components
+
+#image uploads
+/images
