@@ -26,9 +26,9 @@ public class MealRepository implements IMealRepository{
 		String[] str = new String[10];
 		byte[] byt = new byte[10];
 		this.meals = new HashMap<UUID, Meal>();
-		Meal meal1 = new Meal("김치찌개","kimchi stew", "kimchiggigae","most famous korean food", str, byt, new Rating(), 10, 10);
-		Meal meal2 = new Meal("불고기","meat", "bulgogi","most famous korean food", str, byt, new Rating(), 10, 10);
-		Meal meal3 = new Meal("라면","noodle", "raman","most famous korean food", str, byt, new Rating(), 10, 10);
+		Meal meal1 = new Meal("김치찌개","123","123","most famous korean food", str, byt, new Rating(), 10, 10);
+		Meal meal2 = new Meal("불고기","123","123","most famous korean food", str, byt, new Rating(), 10, 10);
+		Meal meal3 = new Meal("라면","123","123","most famous korean food", str, byt, new Rating(), 10, 10);
 		meals.put(meal1.getId(), meal1);
 		meals.put(meal2.getId(), meal2);
 		meals.put(meal3.getId(), meal3);

@@ -25,7 +25,9 @@ public class MealService implements IMealService{
 
 	@Autowired
 	MealService(IMealRepository mealRepository){
+		
 		this.mealRepository = mealRepository;
+		
 	}
 
 	@Override

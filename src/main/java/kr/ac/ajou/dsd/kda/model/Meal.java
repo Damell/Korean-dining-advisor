@@ -6,7 +6,14 @@ import java.util.UUID;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import kr.ac.ajou.dsd.kda.api.ITranslateAPI;
+import kr.ac.ajou.dsd.kda.api.TranslateAPI;
+
+
 public class Meal  {
+	
+	ITranslateAPI trans;
+	
 	
 	@NotBlank(message = "id must not be blank!")
 	private UUID id;
@@ -30,10 +37,14 @@ public class Meal  {
 	
 	public Meal(String koreanName, String englishName, String transliteratedName) {
 		super();
+		
+		
 		this.id = UUID.randomUUID();
 		this.koreanName = koreanName;
 		this.englishName = englishName;
 		this.transliteratedName = transliteratedName;
+			
+		
 	}
 	
 	public Meal(String koreanName, String englishName, String transliteratedName, String description,
