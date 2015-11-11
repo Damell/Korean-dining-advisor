@@ -13,10 +13,10 @@ public interface IMealRepository extends CrudRepository<Meal, UUID> {
 	
 	//Iterable<Meal> findByKoreanName(String query);
 
-	<S extends Meal> S save(Meal meal);
-
-	void delete(Meal meal);
-	
+//	<S extends Meal> S save(Meal meal);
+//
+//	void delete(Meal meal);
+//	
 	List<Meal> findAll();
 
 }
