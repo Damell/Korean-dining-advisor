@@ -42,8 +42,8 @@ public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 	
 	@Test
 	public void testAddAndFindById(){
-		Meal m1 = new Meal("떡볶이", "Hot rice cake", "Tteokbokki", "", null, null, new Rating(), 0, 4);
-		Meal m2 = new Meal("떡볶이", "Hot rice cake", "Tteokbokki", "", null, null, new Rating(), 0, 4);
+		Meal m1 = new Meal("떡볶이","", "", "", null, null, new Rating(), 0, 4);
+		Meal m2 = new Meal("떡볶이","", "", "", null, null, new Rating(), 0, 4);
 		Assert.assertNotNull("failure - expected not null", m1);
 		
 		mealService.addMeal(m1);
