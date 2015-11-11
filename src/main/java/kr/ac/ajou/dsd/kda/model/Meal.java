@@ -8,24 +8,14 @@ import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-<<<<<<< HEAD
 import kr.ac.ajou.dsd.kda.api.ITranslateAPI;
 import kr.ac.ajou.dsd.kda.api.TranslateAPI;
 
-
-public class Meal  {
-	
-	ITranslateAPI trans;
-	
-	
-	@NotBlank(message = "id must not be blank!")
-=======
 @Entity
 public class Meal  {
 	
 	//Id should be generated from hibernate
 	@Id
->>>>>>> origin/development
 	private UUID id;
 	
 	@NotBlank(message = "koreanName must not be blank!")
@@ -55,33 +45,14 @@ public class Meal  {
 	
 	public Meal(String koreanName, String englishName, String transliteratedName, String description,
 			String[] ingredients, String[] category, Rating rating, int viewNum, int spicyGrade) {
-		super();
-		
-		
+		super();	
 		this.id = UUID.randomUUID();
 		
 		this.koreanName = koreanName;
 		this.englishName = englishName;
 		this.transliteratedName = transliteratedName;
-<<<<<<< HEAD
-			
-		
 	}
 	
-	public Meal(String koreanName, String englishName, String transliteratedName, String description,
-			String[] ingredients, byte[] mealPic, Rating rating, int viewNum, int spicyGrade) {
-		this(koreanName, englishName, transliteratedName);
-		
-=======
->>>>>>> origin/development
-		this.description = description;
-		this.ingredients = ingredients;
-		this.category = category;
-		this.rating = rating;
-		this.viewNum = viewNum;
-		this.spicyGrade = spicyGrade;
-	}
-
 	public UUID getId() {
 		return id;
 	}

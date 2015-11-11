@@ -30,15 +30,8 @@ public class MealService implements IMealService{
 	private IMealRepository mealRepository;
 
 	@Autowired
-<<<<<<< HEAD
-	MealService(IMealRepository mealRepository){
-		
-		this.mealRepository = mealRepository;
-		
-	}
-=======
 	private IImageRepository imageRepository;
->>>>>>> origin/development
+
 
 	@Override
 	public List<Meal> getMeals(String query, int limit, int start) {
