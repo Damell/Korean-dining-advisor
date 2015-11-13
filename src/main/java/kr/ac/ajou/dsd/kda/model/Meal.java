@@ -3,13 +3,11 @@ package kr.ac.ajou.dsd.kda.model;
 import java.util.Arrays;
 import java.util.UUID;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
-
-import kr.ac.ajou.dsd.kda.api.ITranslateAPI;
-import kr.ac.ajou.dsd.kda.api.TranslateAPI;
 
 @Entity
 public class Meal  {
@@ -27,12 +25,13 @@ public class Meal  {
 	@NotBlank(message = "transliteratedName must not be blank!")
 	private String transliteratedName;
 	
-	private String description;
-	private String[] ingredients;
-	private String[] category;
-	private Rating rating;
-	private int viewNum;
-	private int spicyGrade;
+	private String description = "";
+	private String[] ingredients = new String[]{""};
+	private String[] category = new String[]{""};
+	@Embedded
+	private Rating rating = new Rating();
+	private int viewNum = 0;
+	private int spicyGrade = 0;
 	
 	protected Meal(){
 		this.id = UUID.randomUUID();
