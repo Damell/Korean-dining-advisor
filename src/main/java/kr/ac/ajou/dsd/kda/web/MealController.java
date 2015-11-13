@@ -55,12 +55,12 @@ public class MealController {
 		mealService.addMeal(meal);
 	}
 	
-	@RequestMapping(value="/images/upload", method=RequestMethod.POST)
+	@RequestMapping(value="/images/upload", method=RequestMethod.POST, produces="text/plain")
 	public @ResponseBody ResponseEntity<String> uploadImage(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
 		if (!file.isEmpty()) {
             try {
             	String filePath = mealService.saveImage(file, name);
-                return new ResponseEntity<String>("You successfully uploaded file to " + filePath + "!", HttpStatus.CREATED);
+                return new ResponseEntity<String>(filePath, HttpStatus.CREATED);
             } catch (Exception e) {
             	return new ResponseEntity<String>("You failed to upload file: " + e.getMessage(), HttpStatus.BAD_REQUEST);
             }
@@ -70,6 +70,7 @@ public class MealController {
 	}
 	
 	@RequestMapping(value="/images/{path:.+}", method=RequestMethod.GET)
+	@ResponseBody
 	public ResponseEntity<byte []> getImage(@PathVariable(value = "path") String path) {
 		byte[] image = mealService.getImage(path);
 		if (image == null) {
