@@ -26,7 +26,7 @@ public class ExternalAPIController {
 		
 	}
 	
-	@RequestMapping(value = "/translate/{koreanName}", method=RequestMethod.POST)
+	@RequestMapping(value = "/translate/{koreanName}", method=RequestMethod.GET)
 	public @ResponseBody String getTranslateToEng (
 			@PathVariable(value="koreanName") String koreanName) {
 		
@@ -34,7 +34,7 @@ public class ExternalAPIController {
 		
 	}
 	
-	@RequestMapping(value = "/transliterate/{koreanName}", method=RequestMethod.POST)
+	@RequestMapping(value = "/transliterate/{koreanName}", method=RequestMethod.GET)
 	public @ResponseBody String getTransliterateToEng (
 			@PathVariable(value="koreanName") String koreanName) {
 		
