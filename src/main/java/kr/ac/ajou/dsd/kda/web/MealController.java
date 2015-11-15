@@ -1,7 +1,6 @@
 package kr.ac.ajou.dsd.kda.web;
 
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 import javax.websocket.server.PathParam;
@@ -55,14 +54,6 @@ public class MealController {
 		logger.info("add a meal");
 		mealService.addMeal(meal);
 	}
-	
-	/*
-	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid) {
-		return mealService.getMealById(uuid);
-	}
-	*/
-	
 	
 	@RequestMapping(value="/images/upload", method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> uploadImage(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
