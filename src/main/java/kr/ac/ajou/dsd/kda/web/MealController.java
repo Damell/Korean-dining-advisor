@@ -55,7 +55,7 @@ public class MealController {
 		mealService.addMeal(meal);
 	}
 	
-	@RequestMapping(value="/images/upload", method=RequestMethod.POST, produces="text/plain")
+	@RequestMapping(value="/images/upload", method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> uploadImage(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
 		if (!file.isEmpty()) {
             try {
@@ -70,7 +70,6 @@ public class MealController {
 	}
 	
 	@RequestMapping(value="/images/{path:.+}", method=RequestMethod.GET)
-	@ResponseBody
 	public ResponseEntity<byte []> getImage(@PathVariable(value = "path") String path) {
 		byte[] image = mealService.getImage(path);
 		if (image == null) {

@@ -3,11 +3,13 @@ package kr.ac.ajou.dsd.kda.model;
 import java.util.Arrays;
 import java.util.UUID;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotBlank;
+
+import kr.ac.ajou.dsd.kda.api.ITranslateAPI;
+import kr.ac.ajou.dsd.kda.api.TranslateAPI;
 
 @Entity
 public class Meal  {
@@ -25,14 +27,12 @@ public class Meal  {
 	@NotBlank(message = "transliteratedName must not be blank!")
 	private String transliteratedName;
 	
-	private String description = "";
-	private String[] ingredients = new String[]{""};
-	private String[] category = new String[]{""};
-	private String photoUrl = "";
-	@Embedded
-	private Rating rating = new Rating();
-	private int viewNum = 0;
-	private int spicyGrade = 0;
+	private String description;
+	private String[] ingredients;
+	private String[] category;
+	private Rating rating;
+	private int viewNum;
+	private int spicyGrade;
 	
 	protected Meal(){
 		this.id = UUID.randomUUID();
@@ -139,7 +139,6 @@ public class Meal  {
 		int result = 1;
 		result = prime * result + Arrays.hashCode(category);
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((photoUrl == null) ? 0 : photoUrl.hashCode());
 		result = prime * result + ((englishName == null) ? 0 : englishName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + Arrays.hashCode(ingredients);
@@ -166,11 +165,6 @@ public class Meal  {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
-			return false;
-		if (photoUrl == null) {
-			if (other.photoUrl != null)
-				return false;
-		} else if (!photoUrl.equals(other.photoUrl))
 			return false;
 		if (englishName == null) {
 			if (other.englishName != null)
@@ -204,14 +198,6 @@ public class Meal  {
 		if (viewNum != other.viewNum)
 			return false;
 		return true;
-	}
-
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
 	}
 
 }
