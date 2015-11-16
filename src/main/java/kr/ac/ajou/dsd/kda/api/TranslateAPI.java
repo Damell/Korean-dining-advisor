@@ -42,12 +42,6 @@ public class TranslateAPI implements ITranslateAPI {
 		
 		Transliteration trans = new Transliteration();
 		
-		try {
-			koreanName = URLDecoder.decode((URLDecoder.decode(koreanName, "8859_1")), "UTF-8"); 
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		
 		trans = rt.getForObject("https://glosbe.com/transliteration/api?from=Hangul&dest=Latin&text={koreanName}&format=json", Transliteration.class, koreanName);
