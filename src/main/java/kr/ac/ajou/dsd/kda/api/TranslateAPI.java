@@ -1,5 +1,8 @@
 package kr.ac.ajou.dsd.kda.api;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -38,6 +41,14 @@ public class TranslateAPI implements ITranslateAPI {
 		RestTemplate rt = new RestTemplate();
 		
 		Transliteration trans = new Transliteration();
+		
+		try {
+			URLDecoder.decode((URLDecoder.decode(koreanName, "8859_1")), "UTF-8"); 
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		
 		trans = rt.getForObject("https://glosbe.com/transliteration/api?from=Hangul&dest=Latin&text={koreanName}&format=json", Transliteration.class, koreanName);
 		
