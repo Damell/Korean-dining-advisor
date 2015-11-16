@@ -43,7 +43,7 @@ public class TranslateAPI implements ITranslateAPI {
 		Transliteration trans = new Transliteration();
 		
 		try {
-			URLDecoder.decode((URLDecoder.decode(koreanName, "8859_1")), "UTF-8"); 
+			koreanName = URLDecoder.decode((URLDecoder.decode(koreanName, "8859_1")), "UTF-8"); 
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
