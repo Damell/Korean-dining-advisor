@@ -53,6 +53,9 @@ body {
 td {
 	text-align: left;
 }
+.mealPhoto {
+	margin-right: 20px;
+}
 
 /* Supporting marketing content */
 .marketing {
