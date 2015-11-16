@@ -8,12 +8,15 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
 import kr.ac.ajou.dsd.kda.model.Meal;
+import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.repository.IImageRepository;
 import kr.ac.ajou.dsd.kda.repository.IMealRepository;
 
@@ -32,6 +35,18 @@ public class MealService implements IMealService{
 	@Autowired
 	private IImageRepository imageRepository;
 
+	/*
+	
+	@PostConstruct
+	private void init() {
+		Meal m1 = new Meal("123","123","123");
+		
+		addMeal(m1);
+		
+	}
+
+	*/
+	
 
 	@Override
 	public List<Meal> getMeals(String query, int limit, int start) {
