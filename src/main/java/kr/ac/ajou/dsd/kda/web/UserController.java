@@ -19,7 +19,7 @@ import kr.ac.ajou.dsd.kda.service.IUserService;
 
 
 @Controller
-@RequestMapping("/Users")
+@RequestMapping("/users")
 public class UserController {
 	
 	static final Logger logger = Logger.getLogger(KoreanDiningAdvisorApplication.class.getName());
