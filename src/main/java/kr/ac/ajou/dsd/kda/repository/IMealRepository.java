@@ -3,13 +3,11 @@ package kr.ac.ajou.dsd.kda.repository;
 import java.util.List;
 import java.util.UUID;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import kr.ac.ajou.dsd.kda.model.Meal;
 
-public interface IMealRepository extends CrudRepository<Meal, UUID> {
-	
-	//Meal findById(UUID uuid);
+public interface IMealRepository extends JpaRepository<Meal, UUID> {
 	
 	//Iterable<Meal> findByKoreanName(String query);
 
