@@ -22,7 +22,9 @@ public class UserService implements IUserService {
 	@Override
 	public boolean authenticate(UserPublic userPublic) {
 		
-		return false;
+		User user = userRepository.findOne(userPublic.getUsername());
+		
+		return user.checkPassword(userPublic.getPassword());
 	}
 
 	

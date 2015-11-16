@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
@@ -35,10 +36,19 @@ public class UserController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
-	public void addMeal(@RequestBody(required=true) UserPublic userPublic){
+	public void addUser(@RequestBody(required=true) UserPublic userPublic){
 		logger.info("add user");
 		userService.createUser(userPublic);
 	}
+	
+	@RequestMapping(value="/authenticate", method=RequestMethod.POST, produces = "application/json")
+	public @ResponseBody boolean autenticate(@RequestBody(required=true) UserPublic userPublic) {
+		
+		return userService.authenticate(userPublic);
+		
+	}
+	
+	
 	
 	
 
