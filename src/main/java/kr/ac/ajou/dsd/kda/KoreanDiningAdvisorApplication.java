@@ -26,6 +26,7 @@ public class KoreanDiningAdvisorApplication extends SpringBootServletInitializer
     	String dbURL = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_URL");
     	
     	if(dbHost == null || dbPort == null || dbUsername == null || dbPassword == null || dbSocket == null || dbURL == null) {
+    		logger.info("Database environment variables not set. Use embedded databaes");
     		return;
     	}
     			
