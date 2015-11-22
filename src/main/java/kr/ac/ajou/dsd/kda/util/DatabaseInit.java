@@ -1,0 +1,45 @@
+package kr.ac.ajou.dsd.kda.util;
+
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+import org.apache.log4j.Logger;
+
+import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
+
+public class DatabaseInit implements ServletContextListener {
+	static final private Logger logger = Logger.getLogger(KoreanDiningAdvisorApplication.class);
+	static final private String DATABASETYPE = "MYSQL";
+
+	@Override
+	public void contextInitialized(ServletContextEvent sce) {
+		String dbHost = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_HOST");
+    	String dbPort = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_PORT");
+    	String dbUsername = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_USERNAME");
+    	String dbPassword = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_PASSWORD");
+    	String dbSocket = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_SOCKET");
+    	String dbURL = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_URL");
+    	
+    	if(dbHost == null || dbPort == null || dbUsername == null || dbPassword == null || dbSocket == null || dbURL == null) {
+    		logger.info("Database environment variables not set. Use embedded database");
+    		return;
+    	}
+    			
+    	logger.info("set properties for database connection on server");
+    	
+    	System.setProperty("spring.datasource.url", dbURL);
+    	System.setProperty("spring.datasource.username", dbUsername);
+    	System.setProperty("spring.datasource.password", dbPassword);
+    	System.setProperty("spring.datasource.initialize", "true");
+    	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
+
+	}
+
+	@Override
+	public void contextDestroyed(ServletContextEvent sce) {
+		
+
+	}
+
+}
