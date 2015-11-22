@@ -1,19 +1,28 @@
 package kr.ac.ajou.dsd.kda.util;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
 
 import org.apache.log4j.Logger;
+import org.springframework.boot.context.embedded.ServletContextInitializer;
+import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.ContextStartedEvent;
+import org.springframework.stereotype.Component;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
 
-public class DatabaseInit implements ServletContextListener {
+@Configuration
+public class DatabaseInit implements ServletContextInitializer {
 	static final private Logger logger = Logger.getLogger(KoreanDiningAdvisorApplication.class);
 	static final private String DATABASETYPE = "MYSQL";
 
 	@Override
-	public void contextInitialized(ServletContextEvent sce) {
+	public void onStartup(ServletContext servletContext) throws ServletException {
 		String dbHost = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_HOST");
     	String dbPort = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_PORT");
     	String dbUsername = System.getenv("OPENSHIFT_" + DATABASETYPE + "_DB_USERNAME");
@@ -33,13 +42,7 @@ public class DatabaseInit implements ServletContextListener {
     	System.setProperty("spring.datasource.password", dbPassword);
     	System.setProperty("spring.datasource.initialize", "true");
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
-
-	}
-
-	@Override
-	public void contextDestroyed(ServletContextEvent sce) {
 		
-
 	}
 
 }
