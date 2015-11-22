@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebListener;
 
 import org.apache.log4j.Logger;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.context.ApplicationListener;
@@ -42,6 +43,7 @@ public class DatabaseInit implements ServletContextInitializer {
     	System.setProperty("spring.datasource.password", dbPassword);
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
     	System.setProperty("spring.jpa.database-platform", "org.hibernate.dialect.MySQL5Dialect");
+    	
     	
     	System.setProperty("spring.datasource.initialize", "true");
     	System.setProperty("spring.jpa.hibernate.ddl-auto", "create");
