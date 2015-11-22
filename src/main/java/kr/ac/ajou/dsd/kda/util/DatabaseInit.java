@@ -38,7 +38,8 @@ public class DatabaseInit implements ServletContextInitializer {
     			
     	logger.info("set properties for database connection on server");
     	
-    	System.setProperty("spring.datasource.url", "jdbc:"+ DATABASETYPE.toLowerCase() + "://"+ dbHost + ":" + dbPort + "/kdadev");
+    	System.setProperty("spring.datasource.url", "jdbc:"+ DATABASETYPE.toLowerCase() + "://"+ dbHost + ":" + 
+    			dbPort + "/kdadev?characterEncoding=UTF-8");
     	System.setProperty("spring.datasource.username", dbUsername);
     	System.setProperty("spring.datasource.password", dbPassword);
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
