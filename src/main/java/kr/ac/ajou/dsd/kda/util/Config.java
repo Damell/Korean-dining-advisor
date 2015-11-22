@@ -1,21 +1,26 @@
 package kr.ac.ajou.dsd.kda.util;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Properties;
 
 public class Config {
 	private Properties properties;
+	private String propertiesFile;
 	
-	public Config(String propertiesFile) throws FileNotFoundException, IOException {
+	public Config(String propertiesFile){
+		this.propertiesFile = propertiesFile;
 		this.properties = new Properties();
-		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFile);
-		if (inputStream != null) {
+		
+		try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propertiesFile)){
 			properties.load(inputStream);
-		} else {
-			throw new FileNotFoundException("property file '" + propertiesFile + "' not found in the classpath");
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		
 	}
 	
 	public String getProperty(String key){
