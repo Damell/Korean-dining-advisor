@@ -40,8 +40,9 @@ public class DatabaseInit implements ServletContextInitializer {
     	System.setProperty("spring.datasource.url", "jdbc:" + dbURL + "kdadev");
     	System.setProperty("spring.datasource.username", dbUsername);
     	System.setProperty("spring.datasource.password", dbPassword);
-    	
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
+    	System.setProperty("spring.jpa.database-platform", "org.hibernate.dialect.MySQL5Dialect");
+    	
     	System.setProperty("spring.datasource.initialize", "true");
     	System.setProperty("spring.jpa.hibernate.ddl-auto", "create");
 		
