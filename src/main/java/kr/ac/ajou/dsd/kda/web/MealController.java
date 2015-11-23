@@ -56,7 +56,7 @@ public class MealController {
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addMeal(@RequestBody(required=true) Meal meal){
-		logger.debug("add a meal");
+		logger.info("add a meal");
 		mealService.addMeal(meal);
 	}
 	
@@ -67,13 +67,13 @@ public class MealController {
 		Meal meal = mealService.getMealById(uuid);
 		
 		if( meal == null ) {
-			logger.debug("meal == null");
+			logger.info("meal == null");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
 		
-		logger.debug("requested uuid: " + uuid);
-		logger.debug("found uuid: " + meal.getId());
+		logger.info("requested uuid: " + uuid);
+		logger.info("found uuid: " + meal.getId());
 		
 		response.setStatus(HttpServletResponse.SC_OK);
 		return meal;
