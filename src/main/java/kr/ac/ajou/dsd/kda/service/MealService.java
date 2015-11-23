@@ -6,10 +6,8 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
-
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,7 +27,7 @@ import kr.ac.ajou.dsd.kda.repository.IMealRepository;
  */
 @Service
 public class MealService implements IMealService{
-	final private Logger log = Logger.getLogger(KoreanDiningAdvisorApplication.class.getName()); 
+	final private Logger logger = Logger.getLogger(MealService.class); 
 	
 	@Autowired
 	private IMealRepository mealRepository;
@@ -57,7 +55,13 @@ public class MealService implements IMealService{
 
 	@Override
 	public void updateMeal(Meal meal) {
-		mealRepository.save(meal);
+		
+		logger.info("meal before storing: " + meal.getId());
+		logger.info("meal before storing: " + meal.getPhotoUrl());
+		logger.info("meal before storing: " + meal.getKoreanName());
+		Meal mTmp = mealRepository.saveAndFlush(meal);
+		logger.info("meal after storing: " + mTmp.getId());
+		logger.info("meal before storing: " + mTmp.getPhotoUrl());
 	}
 
 	@Override
@@ -71,8 +75,7 @@ public class MealService implements IMealService{
 		try {
 			return Files.readAllBytes(file.toPath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.warn("Problem by reading " + path + " - " + e.getMessage());
 			return null;
 		}
 	}
