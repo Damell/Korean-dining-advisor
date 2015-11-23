@@ -33,7 +33,7 @@ public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 	@Test
 	public void testFindAll(){
 		final int numberOfMealsToGet = 1;
-		Collection<Meal> list = mealService.getMeals("", numberOfMealsToGet, 0);
+		Iterable<Meal> list = mealService.getMeals("", numberOfMealsToGet, 0);
 		Assert.assertNotNull("failure - expected not null", list);
 
 		// can be used when mealServide.getMeals() is completely implemented
