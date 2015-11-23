@@ -8,6 +8,7 @@ import javax.websocket.server.PathParam;
 
 import org.apache.log4j.Level;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

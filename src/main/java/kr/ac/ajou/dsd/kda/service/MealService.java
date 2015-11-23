@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,22 +37,12 @@ public class MealService implements IMealService{
 	@Autowired
 	private IImageRepository imageRepository;
 
-	/*
-	
-	@PostConstruct
-	private void init() {
-		Meal m1 = new Meal("123","123","123");
-		
-		addMeal(m1);
-		
-	}
-
-	*/
-	
-
 	@Override
 	public List<Meal> getMeals(String query, int limit, int start) {
-		return mealRepository.findAll();
+		if(query.equals("")) {
+			return mealRepository.findAll(new PageRequest(start, limit)).getContent();
+		}
+		return mealRepository.findByEnglishNameOrTransliteratedNameIgnoreCase(query, new PageRequest(start, limit));
 	}
 
 	@Override
