@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
@@ -18,6 +19,7 @@ public class Meal  {
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	@GenericGenerator(name = "uuid2", strategy = "uuid2")
+	@Type(type="org.hibernate.type.UUIDBinaryType")
 	private UUID id;
 	
 	@NotBlank(message = "koreanName must not be blank!")
