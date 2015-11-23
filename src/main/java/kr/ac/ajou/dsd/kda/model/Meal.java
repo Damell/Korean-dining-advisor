@@ -3,6 +3,7 @@ package kr.ac.ajou.dsd.kda.model;
 import java.util.Arrays;
 import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,9 +18,9 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Meal  {
 	
 	@Id
-	@GeneratedValue(generator = "uuid2")
-	@GenericGenerator(name = "uuid2", strategy = "uuid2")
-	@Type(type="org.hibernate.type.UUIDBinaryType")
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")
+	@Column( columnDefinition = "BINARY(16)", length = 16 )
 	private UUID id;
 	
 	@NotBlank(message = "koreanName must not be blank!")
