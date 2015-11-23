@@ -24,7 +24,18 @@ public class UserService implements IUserService {
 		
 		User user = userRepository.findOne(userPublic.getUsername());
 		
-		return user.checkPassword(userPublic.getPassword());
+		if(user != null) {
+		
+			return user.checkPassword(userPublic.getPassword());
+			
+		}
+		else {
+			
+			return false;
+			
+		}
+		
+		
 	}
 
 	
