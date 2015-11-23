@@ -5,15 +5,19 @@ import java.util.UUID;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Meal  {
 	
-	//Id should be generated from hibernate
 	@Id
+	@GeneratedValue(generator = "uuid2")
+	@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	private UUID id;
 	
 	@NotBlank(message = "koreanName must not be blank!")
@@ -35,7 +39,6 @@ public class Meal  {
 	private int spicyGrade = 0;
 	
 	protected Meal(){
-		this.id = UUID.randomUUID();
 	}
 	
 	public Meal(String koreanName, String englishName, String transliteratedName) {
@@ -46,8 +49,6 @@ public class Meal  {
 	public Meal(String koreanName, String englishName, String transliteratedName, String description,
 			String[] ingredients, String[] category, Rating rating, int viewNum, int spicyGrade) {
 		super();	
-		this.id = UUID.randomUUID();
-		
 		this.koreanName = koreanName;
 		this.englishName = englishName;
 		this.transliteratedName = transliteratedName;
@@ -132,6 +133,14 @@ public class Meal  {
 	public void setSpicyGrade(int spicyGrade) {
 		this.spicyGrade = spicyGrade;
 	}
+	
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
 
 	@Override
 	public int hashCode() {
@@ -204,14 +213,6 @@ public class Meal  {
 		if (viewNum != other.viewNum)
 			return false;
 		return true;
-	}
-
-	public String getPhotoUrl() {
-		return photoUrl;
-	}
-
-	public void setPhotoUrl(String photoUrl) {
-		this.photoUrl = photoUrl;
 	}
 
 }

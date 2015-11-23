@@ -2,11 +2,12 @@ package kr.ac.ajou.dsd.kda.web;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
 import kr.ac.ajou.dsd.kda.model.Meal;
@@ -32,7 +34,7 @@ import kr.ac.ajou.dsd.kda.service.IMealService;
 @Controller
 @RequestMapping("/meals")
 public class MealController {
-	static final Logger logger = Logger.getLogger(KoreanDiningAdvisorApplication.class.getName()); 
+	static final Logger logger = Logger.getLogger(MealController.class); 
 	
 	
 	private IMealService mealService;
@@ -54,14 +56,35 @@ public class MealController {
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addMeal(@RequestBody(required=true) Meal meal){
-		logger.info("add a meal");
+		logger.debug("add a meal");
 		mealService.addMeal(meal);
 	}
 	
 	
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid) {
-		return mealService.getMealById(uuid);
+	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid, HttpServletResponse response) {
+		
+		Meal meal = mealService.getMealById(uuid);
+		if( meal == null ) {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			return null;
+		}
+		response.setStatus(HttpServletResponse.SC_OK);
+		return meal;
+	}
+	
+	@RequestMapping(value = "/{uuid}", method = RequestMethod.PUT)
+	public ResponseEntity<String> updateMealById(@PathVariable(value = "uuid") UUID uuid, @RequestBody(required=true) Meal meal) {
+		if( meal.getId() == null ) return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		if( ! meal.getId().equals(uuid) ) return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		
+		Meal mealTmp = mealService.getMealById(uuid);
+		if(  mealTmp == null ) return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
+		if( mealTmp.equals(meal) ) return new ResponseEntity<String>(HttpStatus.OK);
+		
+		mealService.updateMeal(meal);
+		
+		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
 	
