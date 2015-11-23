@@ -65,10 +65,16 @@ public class MealController {
 	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid, HttpServletResponse response) {
 		
 		Meal meal = mealService.getMealById(uuid);
+		
 		if( meal == null ) {
+			logger.debug("meal == null");
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
+		
+		logger.debug("requested uuid: " + uuid);
+		logger.debug("found uuid: " + meal.getId());
+		
 		response.setStatus(HttpServletResponse.SC_OK);
 		return meal;
 	}
