@@ -18,9 +18,10 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Meal  {
 	
 	@Id
+	@Type(type="uuid-char")
 	@GeneratedValue(generator = "uuid")
 	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	@Column( columnDefinition = "BINARY(16)", length = 16 )
+	@Column(length = 36, unique = true, nullable = false)
 	private UUID id;
 	
 	@NotBlank(message = "koreanName must not be blank!")
