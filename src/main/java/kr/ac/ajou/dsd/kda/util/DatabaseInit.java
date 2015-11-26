@@ -48,7 +48,7 @@ public class DatabaseInit implements ServletContextInitializer {
     	
     	System.setProperty("spring.datasource.initialize", "true");
 //    	System.setProperty("spring.jpa.hibernate.ddl-auto", "create");
-    	System.setProperty("spring.jpa.hibernate.ddl-auto", "update");
+    	System.setProperty("spring.jpa.hibernate.ddl-auto", "none");
 		
 	}
 
