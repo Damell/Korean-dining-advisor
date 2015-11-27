@@ -44,6 +44,8 @@ public class DatabaseInit implements ServletContextInitializer {
     	System.setProperty("spring.datasource.password", dbPassword);
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
     	System.setProperty("spring.jpa.database-platform", "org.hibernate.dialect.MySQL5Dialect");
+    	System.setProperty("spring.datasource.testOnBorrow", "true);
+      System.setProperty("spring.datasource.validationQuery", "SELECT 1");
     	
     	
     	System.setProperty("spring.datasource.initialize", "true");
