@@ -60,6 +60,14 @@ public class MealController {
 		mealService.addMeal(meal);
 	}
 	
+	@RequestMapping(value = "/{uuid}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.OK)
+	public void deleteMeal(@PathVariable(value = "uuid") UUID uuid) {
+		
+		logger.info("delete a meal");
+		mealService.deleteMealById(uuid);
+		
+	}
 	
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid, HttpServletResponse response) {
