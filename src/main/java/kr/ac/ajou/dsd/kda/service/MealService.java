@@ -40,7 +40,11 @@ public class MealService implements IMealService{
 		if(query.equals("")) {
 			return mealRepository.findAll(new PageRequest(start, limit)).getContent();
 		}
-		return mealRepository.findByEnglishNameOrTransliteratedNameIgnoreCase(query, new PageRequest(start, limit));
+		List<Meal> meals = mealRepository.findByEnglishNameOrTransliteratedNameContainingIgnoreCase(query, query, new PageRequest(start, limit));
+		if (meals == null) 
+			return new ArrayList<Meal>();
+		else 
+			return meals;
 	}
 
 	@Override

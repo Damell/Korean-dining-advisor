@@ -14,6 +14,6 @@ public interface IMealRepository extends JpaRepository<Meal, UUID> {
 	
 	List<Meal> findAll();
 	Page<Meal> findAll(Pageable pageRequest);
-	List<Meal> findByEnglishNameOrTransliteratedNameIgnoreCase(String query, Pageable pageRequest);
+	List<Meal> findByEnglishNameOrTransliteratedNameContainingIgnoreCase(String englishName, String transliteratedName, Pageable pageRequest);
 
 }
