@@ -49,6 +49,7 @@ public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 		mealService.addMeal(m1);
 		Meal receivedMeal = mealService.getMealById(m1.getId());
 
+		m1.setViewNum(m1.getViewNum());
 		Assert.assertEquals(receivedMeal, m1);
 		Assert.assertNotEquals(receivedMeal, m2);
 		
