@@ -45,7 +45,10 @@ public class MealService implements IMealService{
 
 	@Override
 	public Meal getMealById(UUID uuid) {
-		return mealRepository.findOne(uuid);
+		Meal meal = mealRepository.findOne(uuid);
+		meal.setViewNum(meal.getViewNum() + 1);
+		mealRepository.saveAndFlush(meal);
+		return meal;
 	}
 
 	@Override
