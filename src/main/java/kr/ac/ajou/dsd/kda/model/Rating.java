@@ -8,12 +8,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 @Embeddable
 public class Rating {
 	
-	private int numUsersRated;
-	private int rating;
+	private int numUsersRated = 0;
+	private int rating = 0;
 	
 	public Rating () {
-		this.rating = 0;
-		this.numUsersRated = 0;
 	}
 	
 	@JsonCreator
@@ -28,9 +26,8 @@ public class Rating {
 	
 	public void setRating(int ratingNew) {
 		if (ratingNew > 5 || ratingNew < 0) return;
-		this.numUsersRated++;
 		this.rating = (rating * numUsersRated + ratingNew) / (numUsersRated + 1);
-		
+		this.numUsersRated++;		
 	}
 
 	@Override
