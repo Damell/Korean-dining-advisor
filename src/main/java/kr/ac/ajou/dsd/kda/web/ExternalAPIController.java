@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.ajou.dsd.kda.api.ITranslateAPI;
 
-
+/**
+ * @author Jae wook
+ * Controller for accessing translation and transliteration by ExternalAPI 
+ */
 @Controller
 public class ExternalAPIController {
 	
@@ -28,6 +31,14 @@ public class ExternalAPIController {
 		
 	}
 	
+	
+	
+	/**
+	 * korean name translate to English name 
+	 * @param koranName saved in Meal
+	 * @return String EnglishName translated by bing API
+	 */
+	
 	@RequestMapping(value = "/translate/{koreanName}", method=RequestMethod.GET)
 	public @ResponseBody String getTranslateToEng (
 			@PathVariable(value="koreanName") String koreanName) {
@@ -35,6 +46,14 @@ public class ExternalAPIController {
 		return trans.translateToEng(koreanName);
 		
 	}
+	
+	
+	
+	/**
+	 * korean name transliterate to English name 
+	 * @param koranName saved in Meal
+	 * @return String EnglishName transliterate by glosbeAPI
+	 */
 	
 	@RequestMapping(value = "/transliterate/{koreanName}", method=RequestMethod.GET)
 	public @ResponseBody String getTransliterateToEng (
