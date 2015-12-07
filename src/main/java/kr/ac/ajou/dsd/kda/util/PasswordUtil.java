@@ -9,7 +9,10 @@ import javax.xml.bind.DatatypeConverter;
 
 import kr.ac.ajou.dsd.kda.model.User;
 
-//taken from http://armoredbarista.blogspot.kr/2013/07/safely-create-and-store-passwords.html
+/**
+ * @author taken from http://armoredbarista.blogspot.kr/2013/07/safely-create-and-store-passwords.html
+ * Utility class for handling hashing passwords and generating salt 
+ */
 public class PasswordUtil {
 	
     public static final String HASH_ALGORITHM = "SHA-256"; 
@@ -22,8 +25,12 @@ public class PasswordUtil {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 
         'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
+	/**
+	 * used for generating salt
+	 * @param length of the random string requested
+	 * @return generated random string
+	 */
     public static String getRandomString(final int length) {
-         
         SecureRandom secureRandom = new SecureRandom(); 
         StringBuilder sb = new StringBuilder(length);
         int position = 0;
@@ -35,6 +42,12 @@ public class PasswordUtil {
         return sb.toString();
     }
 
+	/**
+	 * creates hash of password
+	 * @param password clear text password
+	 * @param salt generated salt @see getRandomString
+	 * @return byte[] hashed password
+	 */
     public static byte[] createPasswordHash(final String password,
             final String salt) {
         byte[] result = null;
@@ -50,6 +63,13 @@ public class PasswordUtil {
         return result;
     }
 
+	/**
+	 * checks password by generating hash of clear text password combined with salt and compares it to hashed password saved in the database
+	 * @param hashedPassword the password saved in the database
+	 * @param salt the salt used for hashing the password
+	 * @param password the clear text password
+	 * @return boolean true if password matches
+	 */
     public static boolean checkPassword(final String hashedPassword, final String salt, final String password) {
         boolean result = false;
         byte[] checkPasswordHashBytes = createPasswordHash(password, salt);

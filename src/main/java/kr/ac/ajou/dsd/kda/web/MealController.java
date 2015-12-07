@@ -30,7 +30,10 @@ import kr.ac.ajou.dsd.kda.model.Meal;
 import kr.ac.ajou.dsd.kda.repository.ImageRepository;
 import kr.ac.ajou.dsd.kda.service.IMealService;
 
-
+/**
+ * @author all team
+ * Controller exposing REST API for accessing and manipulating meals
+ */
 @Controller
 @RequestMapping("/meals")
 public class MealController {
@@ -101,7 +104,13 @@ public class MealController {
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
-	
+	/**
+	 * @author Daniel Chabr
+	 * API for uploading images, accepts multipart file and saves it to MealService
+	 * @param name the name of the file
+	 * @param file the image file
+	 * @return file path 
+	 */
 	@RequestMapping(value="/images/upload", method=RequestMethod.POST)
 	public @ResponseBody ResponseEntity<String> uploadImage(@RequestParam("name") String name, @RequestParam("file") MultipartFile file) {
 		if (!file.isEmpty()) {
@@ -116,6 +125,12 @@ public class MealController {
         }
 	}
 	
+	/**
+	 * @author Daniel Chabr
+	 * API for getting images saved on server
+	 * @param path the path to the file
+	 * @return image file
+	 */
 	@RequestMapping(value="/images/{path:.+}", method=RequestMethod.GET)
 	public ResponseEntity<byte []> getImage(@PathVariable(value = "path") String path) {
 		byte[] image = mealService.getImage(path);
