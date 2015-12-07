@@ -14,9 +14,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.ac.ajou.dsd.kda.util.EnvVariables;
 
+/**
+ * @author Daniel Chabr
+ * Repository for images
+ */
 @Repository
 public class ImageRepository implements IImageRepository {
 
+	/**
+	 * Saves image file to file system
+	 * @param file the image file
+	 * @param fileName the name of the image file
+	 * @return file path to the image used for accessing it later
+	 */
 	@Override
 	public String saveImage(MultipartFile file, String fileName) throws IOException {
 		String filePath = UUID.randomUUID().toString() + fileName;
@@ -30,6 +40,11 @@ public class ImageRepository implements IImageRepository {
         return filePath;
 	}
 
+	/**
+	 * Retrieves image file from the file system
+	 * @param fileName the name of the file to be retrieved
+	 * @return the image file
+	 */
 	@Override
 	public File getImage(String fileName) {
 		String filePath = EnvVariables.getImageDir() + fileName;
