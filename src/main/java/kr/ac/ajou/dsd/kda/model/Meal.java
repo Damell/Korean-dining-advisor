@@ -14,6 +14,11 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 
+/**
+ * 
+ * @author Torben Tietze <torben.tietze@googlemail.com>
+ *
+ */
 @Entity
 public class Meal  {
 	

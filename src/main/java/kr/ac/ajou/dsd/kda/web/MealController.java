@@ -47,6 +47,13 @@ public class MealController {
 		this.mealService = mealService;
 	}
 
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com>
+	 * @param query search String for latin characters
+	 * @param limit
+	 * @param start starting point of 
+	 * @return
+	 */
 	@RequestMapping(method=RequestMethod.GET)
 	public @ResponseBody List<Meal> getMeals(
 			@RequestParam(value="query", required=false, defaultValue="") String query, 
@@ -56,6 +63,10 @@ public class MealController {
 		return mealService.getMeals(query, limit, start);
 	}
 	
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com>
+	 * @param meal
+	 */
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addMeal(@RequestBody(required=true) Meal meal){
@@ -90,6 +101,12 @@ public class MealController {
 		return meal;
 	}
 	
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com> 
+	 * @param uuid
+	 * @param meal
+	 * @return returns the corresponding HTTP status code after checking the parameter
+	 */
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.PUT)
 	public ResponseEntity<String> updateMealById(@PathVariable(value = "uuid") UUID uuid, @RequestBody(required=true) Meal meal) {
 		if( meal.getId() == null ) return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);

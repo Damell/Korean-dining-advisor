@@ -20,11 +20,6 @@ import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.repository.IImageRepository;
 import kr.ac.ajou.dsd.kda.repository.IMealRepository;
 
-/**
- * 
- * @author Torben Tietze <torben.tietze@googlemail.com>
- *
- */
 @Service
 public class MealService implements IMealService{
 	final private Logger logger = Logger.getLogger(MealService.class); 
@@ -35,6 +30,9 @@ public class MealService implements IMealService{
 	@Autowired
 	private IImageRepository imageRepository;
 
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com>
+	 */
 	@Override
 	public List<Meal> getMeals(String query, int limit, int start) {
 		if(query.equals("")) {
@@ -57,9 +55,12 @@ public class MealService implements IMealService{
 
 	@Override
 	public void addMeal(Meal meal) {
-		mealRepository.save(meal);
+		mealRepository.saveAndFlush(meal);
 	}
 
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com>
+	 */
 	@Override
 	public void updateMeal(Meal meal) {
 		

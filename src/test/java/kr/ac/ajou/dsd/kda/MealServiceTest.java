@@ -14,6 +14,11 @@ import kr.ac.ajou.dsd.kda.model.Meal;
 import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.service.IMealService;
 
+/**
+ * 
+ * @author Torben Tietze <torben.tietze@googlemail.com>
+ *
+ */
 @Transactional
 public class MealServiceTest extends KoreanDiningAdvisorApplicationTests {
 
