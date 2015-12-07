@@ -34,7 +34,7 @@ public class ExternalAPIController {
 	
 	
 	/**
-	 * korean name translate to English name 
+	 * API that translate from korean name to English name 
 	 * @param koranName saved in Meal
 	 * @return String EnglishName translated by bing API
 	 */
@@ -50,7 +50,7 @@ public class ExternalAPIController {
 	
 	
 	/**
-	 * korean name transliterate to English name 
+	 * API that transliterate from korean name to English name 
 	 * @param koranName saved in Meal
 	 * @return String EnglishName transliterate by glosbeAPI
 	 */
