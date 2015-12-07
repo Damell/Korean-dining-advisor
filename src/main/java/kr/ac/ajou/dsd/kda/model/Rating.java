@@ -14,11 +14,20 @@ public class Rating {
 	public Rating () {
 	}
 	
+	/**
+	 * constructor with annotations to force the Jackson library to use this method for creating a JSON String.
+	 * So the logic of set rating will be executed
+	 * @param rating
+	 */
 	@JsonCreator
 	public Rating(int rating){
 		setRating(rating);
 	}
 	
+	/**
+	 * 
+	 * @return rating
+	 */
 	@JsonValue
 	public int getRating() {
 		return rating;

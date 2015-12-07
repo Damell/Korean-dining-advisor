@@ -17,6 +17,10 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 public class Meal  {
 	
+	/**
+	 * JPA/hibernate is taking care of the auto generation of the id
+	 * the annotions are important to let JPA know how to deal with the UUID class
+	 */
 	@Id
 	@Type(type="uuid-char")
 	@GeneratedValue(generator = "uuid")
@@ -24,6 +28,7 @@ public class Meal  {
 	@Column(length = 36, unique = true, nullable = false)
 	private UUID id;
 	
+	// mandatory variables
 	@NotBlank(message = "koreanName must not be blank!")
 	private String koreanName;
 	
@@ -33,14 +38,16 @@ public class Meal  {
 	@NotBlank(message = "transliteratedName must not be blank!")
 	private String transliteratedName;
 	
+	// optional variables that have default values
 	private String description = "";
 	private String[] ingredients = new String[]{""};
 	private String[] category = new String[]{""};
 	private String photoUrl = "";
-	@Embedded
-	private Rating rating = new Rating();
 	private int viewNum = 0;
 	private int spicyGrade = 0;
+	// TODO for simlicity the rating is embedded so the column has the type tinyblob what should be improved
+	@Embedded
+	private Rating rating = new Rating();
 	
 	protected Meal(){
 	}
@@ -62,6 +69,10 @@ public class Meal  {
 		return id;
 	}
 
+	/**
+	 * setter for id is private because JPA should care about that
+	 * @param id
+	 */
 	private void setId(UUID id) {
 		this.id = id;
 	}

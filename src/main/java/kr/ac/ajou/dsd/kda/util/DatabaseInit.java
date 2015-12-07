@@ -17,6 +17,13 @@ import org.springframework.stereotype.Component;
 
 import kr.ac.ajou.dsd.kda.KoreanDiningAdvisorApplication;
 
+/**
+ * class that configures the properties for accessing the correct DBMS automatically by considering environment variables 
+ * ### Warning! ###
+ * method {@link #setAutoGenerate} should be adjusted for running on anything else than running local
+ * @author Torben Tietze <torben.tietze@googlemail.com>
+ *
+ */
 @Configuration
 public class DatabaseInit implements ServletContextInitializer {
 	static final private Logger logger = Logger.getLogger(KoreanDiningAdvisorApplication.class);
@@ -44,14 +51,23 @@ public class DatabaseInit implements ServletContextInitializer {
     	System.setProperty("spring.datasource.password", dbPassword);
     	System.setProperty("spring.datasource.driver", "com.mysql.jdbc.Driver");
     	System.setProperty("spring.jpa.database-platform", "org.hibernate.dialect.MySQL5Dialect");
+    	
+    	// bugfix for refused connection between tomcat and mysql on openshift platform
     	System.setProperty("spring.datasource.testOnBorrow", "true");
     	System.setProperty("spring.datasource.validationQuery", "SELECT 1");
     	
-    	
+    	setAutoGenerate();
+		
+	}
+	
+	/**
+	 * ### Warning! ###<br/>
+	 * if property is set to "create" it will drop and create new tables 
+	 */
+	private void setAutoGenerate() {
     	System.setProperty("spring.datasource.initialize", "true");
 //    	System.setProperty("spring.jpa.hibernate.ddl-auto", "create");
     	System.setProperty("spring.jpa.hibernate.ddl-auto", "none");
-		
 	}
 
 }
