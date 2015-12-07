@@ -6,5 +6,4 @@ import kr.ac.ajou.dsd.kda.model.User;
 
 public interface IUserRepository extends JpaRepository<User, String> {
 
-	
 }
