@@ -22,7 +22,7 @@ public class UserService implements IUserService {
 	
 	/**
 	 * create User  
-	 * @param UserPublic is userclass that have public password 
+	 * @param UserPublic is user class that have public password 
 	 */
 	@Override
 	public void createUser(UserPublic userPublic) {
