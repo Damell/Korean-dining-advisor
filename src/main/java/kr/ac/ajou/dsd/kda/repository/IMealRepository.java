@@ -10,10 +10,15 @@ import org.springframework.data.repository.CrudRepository;
 
 import kr.ac.ajou.dsd.kda.model.Meal;
 
+/**
+ * interface that defines auto generated methods by their names for accessing the repository
+ * @author Torben Tietze <torben.tietze@googlemail.com>
+ *
+ */
 public interface IMealRepository extends JpaRepository<Meal, UUID> {
 	
 	List<Meal> findAll();
 	Page<Meal> findAll(Pageable pageRequest);
-	List<Meal> findByEnglishNameOrTransliteratedNameIgnoreCase(String query, Pageable pageRequest);
+	List<Meal> findByEnglishNameOrTransliteratedNameContainingIgnoreCase(String englishName, String transliteratedName, Pageable pageRequest);
 
 }
