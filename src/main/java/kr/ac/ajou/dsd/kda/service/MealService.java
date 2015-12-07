@@ -20,6 +20,9 @@ import kr.ac.ajou.dsd.kda.model.Rating;
 import kr.ac.ajou.dsd.kda.repository.IImageRepository;
 import kr.ac.ajou.dsd.kda.repository.IMealRepository;
 
+/**
+ * Meal service implementation
+ */
 @Service
 public class MealService implements IMealService{
 	final private Logger logger = Logger.getLogger(MealService.class); 
@@ -77,6 +80,12 @@ public class MealService implements IMealService{
 		mealRepository.delete(uuid);		
 	}
 
+	/**
+	 * @author Daniel Chabr
+	 * Gets image file from the repository
+	 * @param path to the image
+	 * @return byte [] of the image
+	 */
 	@Override
 	public byte[] getImage(String path) {
 		File file = imageRepository.getImage(path);
@@ -88,6 +97,13 @@ public class MealService implements IMealService{
 		}
 	}
 
+	/**
+	 * @author Daniel Chabr
+	 * Saves image file to repository
+	 * @param file image file
+	 * @param fileName name of the image
+	 * @return path to the saved file
+	 */
 	@Override
 	public String saveImage(MultipartFile file, String fileName) throws IOException {
 		return imageRepository.saveImage(file, fileName);

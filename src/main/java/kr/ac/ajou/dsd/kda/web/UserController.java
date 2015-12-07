@@ -16,9 +16,12 @@ import kr.ac.ajou.dsd.kda.model.User;
 import kr.ac.ajou.dsd.kda.model.UserPublic;
 import kr.ac.ajou.dsd.kda.service.IUserService;
 
+
 /**
- * Controller exposing User REST API
+ * @author Jae wook
+ * Controller exposing REST API for creating and authenticating for user  
  */
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -30,14 +33,17 @@ public class UserController {
 	
 	@Autowired
 	UserController(IUserService userService) {
+		
 		this.userService = userService;
+		
 	}
 	
+	
 	/**
-	 * @author Torben Tietze
-	 * Creates new user in the database
-	 * @param userPublic the user public model with clear text password
+	 * API that add user in IUserRepository 
+	 * @param UserPublic is user class that have public password
 	 */
+	
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public void addUser(@RequestBody(required=true) UserPublic userPublic){
@@ -45,15 +51,18 @@ public class UserController {
 		userService.createUser(userPublic);
 	}
 	
+	
 	/**
-	 * @author JaeWook
-	 * Authenticates user by matching the password to the hashed password in the database
-	 * @param userPublic the user public model with clear text password
-	 * @return true if the user was successfully authenticated
+	 * API that authenticate user in IUserRepository 
+	 * @param UserPublic is user class that have public password
+	 * @return boolean true if password matches
 	 */
+	
 	@RequestMapping(value="/authenticate", method=RequestMethod.POST, produces = "application/json")
-	public @ResponseBody boolean authenticate(@RequestBody(required=true) UserPublic userPublic) {
+	public @ResponseBody boolean autenticate(@RequestBody(required=true) UserPublic userPublic) {
+		
 		return userService.authenticate(userPublic);
+		
 	}
 	
 	

@@ -3,6 +3,11 @@
 
 package kr.ac.ajou.dsd.kda.api.model;
 
+
+/**
+ * @author Jae wook
+ * Model class for translation  
+ */
 public class Transliteration {
 	
 	
