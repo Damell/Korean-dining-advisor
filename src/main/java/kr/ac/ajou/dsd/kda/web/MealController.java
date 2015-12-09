@@ -74,6 +74,12 @@ public class MealController {
 		mealService.addMeal(meal);
 	}
 	
+	/**
+	 * @author Jae Wook
+	 * delete Meal by Id
+	 * @param UUID
+	 */
+
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void deleteMeal(@PathVariable(value = "uuid") UUID uuid) {
@@ -83,6 +89,14 @@ public class MealController {
 		
 	}
 	
+	
+	/**
+	 * @author Jae Wook
+	 * Gets Meal by Id
+	 * @param UUID
+	 * @return Meal by uuid
+	 */
+
 	@RequestMapping(value = "/{uuid}", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody Meal getByMeal(@PathVariable(value = "uuid") UUID uuid, HttpServletResponse response) {
 		

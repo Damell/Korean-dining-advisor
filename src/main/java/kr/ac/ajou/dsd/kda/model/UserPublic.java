@@ -1,5 +1,10 @@
 package kr.ac.ajou.dsd.kda.model;
 
+
+/**
+ * @author all team
+ * special user class that have public passwoed
+ */
 public class UserPublic {
 
 	private String username;

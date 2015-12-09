@@ -63,6 +63,13 @@ public class MealService implements IMealService{
 		return meal;
 	}
 
+
+	/**
+	 * @author Torben Tietze <torben.tietze@googlemail.com>
+	 * add Meal 
+	 * @param Meal
+	 */
+	
 	@Override
 	public void addMeal(Meal meal) {
 		mealRepository.saveAndFlush(meal);

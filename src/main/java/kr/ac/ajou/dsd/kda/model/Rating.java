@@ -5,6 +5,11 @@ import javax.persistence.Embeddable;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
+
+/**
+ * @author all team
+ * 
+ */
 @Embeddable
 public class Rating {
 	

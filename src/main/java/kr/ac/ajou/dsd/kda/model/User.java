@@ -6,6 +6,10 @@ import javax.xml.bind.DatatypeConverter;
 
 import kr.ac.ajou.dsd.kda.util.PasswordUtil;
 
+
+/**
+ * @author all team
+ */
 @Entity
 public class User {
 	
@@ -17,10 +21,21 @@ public class User {
 	private String salt;
 	private String pwHashed;
 
+
+	/**
+	 * checks password by generating hash of clear text password combined with salt and compares it to hashed password saved in the database
+	 * @param password by user input 
+	 * @return boolean true if password matches
+	 */
 	public boolean checkPassword(String password) {
 		return PasswordUtil.checkPassword(this.pwHashed, this.salt, password);
 	}
 
+	/**
+	 * set password by hashing with password and salt
+	 * @param password by user input
+	 * 
+	 */
 	public void setPassword(String password) {
 		this.salt = PasswordUtil.getRandomString(32);
 		this.pwHashed = DatatypeConverter.printBase64Binary(PasswordUtil.createPasswordHash(password, salt));

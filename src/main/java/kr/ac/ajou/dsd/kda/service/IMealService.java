@@ -9,6 +9,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kr.ac.ajou.dsd.kda.model.Meal;
 
+
+/**
+ * @author Torben Tietze <torben.tietze@googlemail.com>
+ *  Interface for Meal service  
+ */
 public interface IMealService {
 	public List<Meal> getMeals(String query, int limit, int start);
 	public Meal getMealById(UUID uuid);
