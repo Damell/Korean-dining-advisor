@@ -47,6 +47,13 @@ public class MealService implements IMealService{
 		else 
 			return meals;
 	}
+	
+	/**
+	 * @author Jae Wook
+	 * Gets Meal by Id
+	 * @param UUID
+	 * @return Meal by uuid
+	 */
 
 	@Override
 	public Meal getMealById(UUID uuid) {
@@ -75,6 +82,13 @@ public class MealService implements IMealService{
 		logger.info("meal before storing: " + mTmp.getPhotoUrl());
 	}
 
+	
+	/**
+	 * @author Jae Wook
+	 * Delete Meal by Id
+	 * @param UUID
+	 */
+	
 	@Override
 	public void deleteMealById(UUID uuid) {
 		mealRepository.delete(uuid);		
