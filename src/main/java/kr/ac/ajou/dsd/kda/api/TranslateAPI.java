@@ -27,6 +27,9 @@ public class TranslateAPI implements ITranslateAPI {
 	@Override
 	public String translateToEng(String koreanName) {
 		
+		/*
+		 * In order to use bingAPI, set clientId, clientSecret. 
+		 */
 		Translate.setClientId("dsd_client");
 		Translate.setClientSecret("vcMYacQdddTLuve0hn2jBBiAUTwcHVyyngj+DOE+1Ak=");
 		
