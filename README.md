@@ -3,6 +3,8 @@ Production: [![Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.
 
 Development: [![Dev Build Status](https://travis-ci.org/Damell/Korean-dining-advisor.svg?branch=development)](https://travis-ci.org/Damell/Korean-dining-advisor) [![Dev Code Coverage](https://codecov.io/github/Damell/Korean-dining-advisor/coverage.svg?branch=development)](https://codecov.io/github/Damell/Korean-dining-advisor?branch=development)
 
+Android app project at https://github.com/Damell/Korean-dining-advisor-android-app
+
 The goal of this project is to design and implement a platform that will provide foreigners with an easy way of ordering meal in restaurants in Korea.
 
 ## Background
